@@ -59,7 +59,7 @@ export default class App extends Component {
     return (
       <div className = "Antd">
         <Row>
-             <Col span={12} offset={6}>
+             <Col span={14} offset={5}>
                <Card title="固顶表头表格" >
                   <Table columns={columns} dataSource={this.state.dataSource} scroll={{ y: 240 }} />
               </Card>
