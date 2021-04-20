@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Table ,Select,Divider} from 'antd';
+import { Card,Table ,Select,Row, Col} from 'antd';
 export default class App extends Component {
   constructor(props){
     super(props);
@@ -58,23 +58,25 @@ export default class App extends Component {
     
     return (
       <div className = "Antd">
-        
-        <Divider>固顶表头表格</Divider>
-
-        <Table columns={columns} dataSource={this.state.dataSource} scroll={{ y: 240 }} />
-
-        <Divider>下拉多选的组件</Divider>
-        <Select
-          mode="multiple"
-          allowClear
-          style={{ width: '100%' }}
-          placeholder="Please select"
-          defaultValue={['a10', 'c12']}
-          onChange={handleChange}
-        >
-          {this.state.children}
-        </Select>
-        
+        <Row>
+             <Col span={12} offset={6}>
+               <Card title="固顶表头表格" >
+                  <Table columns={columns} dataSource={this.state.dataSource} scroll={{ y: 240 }} />
+              </Card>
+              <Card title="下拉多选的组件"  style= {{marginTop: 16 ,height:500}}>
+                  <Select
+                    mode="multiple"
+                    allowClear
+                    style={{ width: '100%' }}
+                    placeholder="Please select"
+                    defaultValue={['a10', 'c12']}
+                    onChange={handleChange}
+                  >
+                    {this.state.children}
+                  </Select>
+              </Card>
+          </Col>
+        </Row>
       </div>
     )
   }
